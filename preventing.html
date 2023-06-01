@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background:gray;
+        }
+        form{
+            width: 800px;
+            background-color: aqua;
+            margin: auto;
+            padding: 100px;
+            text-align: center;
+        }
+        form *{
+            margin-top: 1rem;
+            font-size: 1.5rem;
+            border-radius: 12px;
+            border: none;
+            outline:none;
+        }
+        form input{
+            padding: 10px;
+        }
+        label{
+            font-size: 2rem;
+        }
+        button{
+            padding: 10px 20px;
+            border-radius: 12px;
+            color: #fff;
+            background-color: rebeccapurple;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <div>
+            <label for="name">First Name:
+            <input type="text" name=""placeholder="First Name"> <br>Last Name:
+             <input type="text" name=""placeholder="Last Name">
+           </label>
+        </div>
+        <div>
+            <label for="terms">
+                <input type="checkbox" id="terms"> <span>I accept the <a href="https://www.google.com" onclick="event.preventDefault()">terms and conditons</a></span>
+            </label>
+        </div>
+        <div>
+            <button>Submit</button>
+        </div>
+    </form>
+
+    <script>
+        const formEl=document.querySelector("form");
+        const inputEl=document.querySelectorAll("form input");
+        const checkEl=document.querySelector("form input[type='checkbox']");
+
+        formEl.addEventListener("submit",(event)=>{
+            event.preventDefault()
+            if(!checkEl.checked){
+                alert("Please Read the terms&conditions")
+            }
+            console.log("Your Name is:",inputEl[0].value,inputEl[1].value,checkEl.checked);
+        })
+    </script>
+</body>
+</html>

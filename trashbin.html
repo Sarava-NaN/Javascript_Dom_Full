@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          .alert{
+                text-align: center;
+                height: 80px;
+                background-color: #001514;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width:fit-content;
+                margin: auto;
+                color: #ED217C;
+                font-size: 2rem;
+                margin: 1rem;
+                margin-inline:auto;
+                border-radius: 12px;
+                border-left: 20px ridge green;
+                border-right: 20px ridge green;
+                cursor: pointer;
+                transition: 2s ease-in-out;
+                margin-top: 2.4rem;
+            }
+            .alert:hover{
+                background-color: #ED217C;
+                color: black;
+            }
+    </style>
+</head>
+<body>
+    <section>
+        <!-- inserting html elements in js -->
+    </section>
+
+    <!-- Inner JS code -->
+    <script>
+        function myfun(text){
+            let body=document.getElementsByTagName("body");
+              let main=document.getElementsByTagName("section");
+              let div=document.createElement("div");
+              div.className="alert";
+              let textNode=document.createTextNode(text);
+              //div.textcontent --other way to insert Text              
+              div.append(textNode);
+              console.log(div,textNode);
+              main[0].prepend(div);
+              body[0].bgColor="rgb(2, 33,0)"};
+        // Call the function
+        myfun("inserting html elements without using html")
+        myfun('CreateElement')
+        myfun('createTextNode')
+        myfun('Append')
+        myfun('Prepend')
+      </script>
+        </body>
+</html>

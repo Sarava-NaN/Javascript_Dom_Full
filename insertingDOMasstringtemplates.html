@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: bisque;
+        }
+        .toggle{
+            display: none;
+        }
+        .btn-2{
+            margin-top: 1rem;
+            width: fit-content;
+            padding: 18px;
+            cursor: pointer;
+            border-radius: 50px;
+            border: none;
+            outline: none;
+            background-color:brown;
+            color: aliceblue;
+            margin-bottom: 1rem;
+
+           }
+           #resync{
+            padding:6px 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width:fit-content;
+margin: auto;
+margin-top: 2rem;
+cursor: pointer;
+background-color: purple;
+           }
+           .footer{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+           }
+        header{
+            background-color: blue;
+            text-align: center;
+            color: white;
+            padding: 30px;
+            font-family:monospace;
+            font-weight: 900;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+        .input-container{
+            background-color:white;
+            padding: 30px;
+            width: 500px;
+            margin: auto;
+            border-radius: 6px;
+            margin-top: 2rem;
+            box-shadow: 3px 4px 8px 7px rgba(0,0,0,0.4);
+        }
+        .input{
+            padding:10px;
+            width: 360px;
+            background-color:rgb(197, 196, 196);
+            border: none;
+            outline: none;
+            border-radius: 6px;
+            text-transform: capitalize;
+            color:rebeccapurple;
+            font-size: x-large;
+        }
+        ::placeholder{
+            font-size: 1.2rem;
+                }
+        .btn{
+            background-color: rgb(7, 7, 245);
+            padding: 10px;
+            border: none;
+            outline: none;
+            border-radius: 6px;
+            text-transform: uppercase;
+            cursor: pointer;
+            color: cornsilk;
+            font-weight: 600;
+            transform: translateX(10px);
+        }
+        .btn:hover{
+            background-color: rgb(4, 4, 143);
+
+        }
+        .output-container{
+            background-color:white;
+            padding: 30px;
+            width: 500px;
+            margin: auto;
+            border-radius: 6px;
+            margin-top: 2rem;
+            box-shadow: 3px 4px 8px 7px rgba(0,0,0,0.4);
+        }
+        .lists li{
+            list-style-type:none;
+            padding:10px;
+            width: 440px;
+            background-color:rgb(197, 196, 196);
+            border:1px solid gray;
+            outline: none;
+            border-radius: 6px;
+            margin-bottom:1rem;
+            cursor: pointer;
+            transition: background 1s ,color 1s;
+            font-size: 1.2rem;
+           }
+           .lists li:hover{
+            background-color:rgb(138, 133, 133);
+            color: aliceblue;
+           }
+           .heading{
+            text-align: center;
+            background-color: rgb(99, 99, 99);
+            color: blanchedalmond;
+            padding:10px;
+            width: fit-content;
+            margin: auto;
+            margin-top: 1rem;
+            cursor: pointer;
+            border-left: 6px ridge red;
+            border-right: 6px ridge red;
+           }
+         #right-btn{
+            color: red;
+            padding:4px 12px;
+            cursor: pointer;
+         }
+         #pasta{
+           display: flex;
+           justify-content: space-between;
+        }
+           @media (max-width:480px){
+            header{
+                width: 100%;
+                overflow: hidden;
+            }
+            .input-container{
+            padding: 10px;
+            width:fit-content;
+            max-width:400px;
+        }
+        .input{
+            width: 260px;
+        }
+        .btn{
+            background-color: rgb(7, 7, 245);
+            padding: 14px;
+            transform: translateX(1px)translateY(-4px);
+        }
+        .output-container{
+            padding: 30px;
+            width:auto;
+            background-color: rgba(0, 0, 0, 0.808);
+        }
+        .lists li{
+            padding:10px;
+            width:auto;
+            border:3px solid gray;
+            margin-bottom:1.5rem;
+        }
+           }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🍋FoodCook Planner</h1>
+    </header>
+    <main>
+             <!-- <div class="heading">
+                <h1>✅Succesfully</h1>
+             </div> -->
+    </main>
+    <div class="input-container">
+       <input type="text" class="input" id="input" placeholder="I like to eat"> 
+       <button type="button" class="btn" id="btn">Order</button>
+    </div>
+    <div class="output-container">
+        <ul class="lists">
+            <li class="nood" id="pasta">Noodles <button id="right-btn" onclick="myBtn()">Button</button></li>
+            <li>Pasta</li>
+            <li>Sandwich</li>
+        </ul>
+    </div>
+    <button id="resync">Button</button>
+    <div class="duplicate"></div>
+    <script>
+
+        const input=document.getElementById('input');
+        const btn=document.getElementById('btn');
+        btn.addEventListener("click",()=>{
+           list[0].innerHTML +=`<li>${input.value}</li>`;
+           input.value='';
+        })
+        let list=document.getElementsByClassName('lists');
+
+        // list[0].insertAdjacentHTML("beforebegin",'<h1>Food Items:</h1>')
+        // list[0].insertAdjacentHTML("afterbegin",'<li>Parotta</li>')
+        // list[0].insertAdjacentHTML("afterbegin",'<li>Idly</li>')
+        // list[0].insertAdjacentHTML("beforebegin",'<li>Payasam</li>')
+
+      //new way
+    
+        // let clone=document.querySelector('.lists');
+// const data= clone.cloneNode(true);
+// document.write(data)
+// let newVal=document.createElement('li');
+// li.textContent='Chicken momos'
+// li.className='lists'
+// let querySel=document.querySelector(".lists :nth-child(2)");
+// querySel.replaceWith(newVal);
+function myBtn(){
+    let li=document.createElement('li');
+        li.textContent='Chicken Noodles'
+        li.className='lists';
+        let qry=document.querySelector('.lists :nth-child(1)');
+        qry.replaceWith(li)
+}
+const $list=document.getElementsByClassName("output-container")
+let dup=document.getElementsByClassName('duplicate');
+let resyncBtn=document.getElementById('resync');
+resyncBtn.addEventListener("click",()=>{
+dup[0].innerHTML='';
+    let duplicate=$list[0].cloneNode(true);
+dup[0].append(duplicate);
+
+})
+    </script>
+</body>
+</html>

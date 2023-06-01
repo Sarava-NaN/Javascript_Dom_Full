@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .show{
+            background-color: aqua;
+        }
+        .newClass{
+            /* background-color: saddlebrown; */
+            display: none;
+        }
+    </style>
+</head>
+<body>
+       <div class="grid">
+       </div>
+       <div class="grid">
+    </div>
+    <div class="grid">
+    </div>
+    <div class="toggle">
+    </div>
+    <button>REMOVE</button>
+       <script>
+        let grid=document.getElementsByClassName("grid");
+//    let rs= grid[0].setAttribute("class","newClass")
+    grid[0].className +=" box box2"
+    // console.log(rs);   
+    console.log(grid[0].classList);
+    grid[0].classList.add("box3");
+    grid[0].classList.remove("box");
+    console.log(grid[0].className);
+    for(let cssStyle of grid[0].classList.value){
+        console.log(cssStyle);
+    }  
+    grid[0].style.cssText="background-color:red;width:200px;height:300px;padding:30px;display:inline-block;cursor:pointer;"
+    grid[1].style.cssText="background-color:navy;width:200px;height:300px;display:inline-block;padding:30px;cursor:pointer;"
+    grid[2].style.cssText="background-color:orangered;width:200px;height:300px;display:inline-block;padding:30px;cursor:pointer;"
+let toggleEl=document.querySelector(".toggle");
+let body=document.querySelector("body")
+toggleEl.style.cssText="background-color:purple;width:200px;height:300px;display:inline-block;padding:30px;cursor:pointer;"
+setTimeout(() => {
+  let result= toggleEl.addEventListener("click",()=>{
+    toggleEl.setAttribute=("show")
+  })
+},5000);
+ 
+</script>
+</body>
+</html>

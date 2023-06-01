@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: rgba(0, 0, 0, 0.486);
+        }
+        .todo{
+            margin:4%;
+            color: crimson;
+            font-size: 2rem;
+            text-decoration: underline;
+
+        }
+        .search-bar-container{
+            width: fit-content;
+            display: flex;
+            justify-content: center;
+            align-items:center;
+            margin: auto;
+            flex-direction:column;
+        }
+        #input{
+            width: 400px;
+            padding: 12px 22px;
+            border: none;
+            outline: none;
+            border:6px ridge cornflowerblue;
+            border-radius: 12px;
+            font-size: 1.4rem;
+            text-transform: capitalize;
+            color: purple;
+            font-weight: 700;
+        }
+        ::placeholder{
+            color: crimson;
+        }
+        #btn{
+           width:140px;
+           padding: 12px;
+           border: 4px groove rgb(32, 73, 73);
+           border-radius: 12px;
+           cursor: pointer;
+           margin-top:1.4rem;
+           background-color: purple;
+           color: antiquewhite;
+        }
+        #btn:hover{
+            background-color: rgba(59, 20, 59, 0.993);
+        }
+        #lists{
+            margin-top: 4em;
+        }
+        #lists li::after{
+            content: '';
+            display: block;
+            height: 12px;
+            width: 25rem;
+            min-width:fit-content;
+            background-color: aliceblue;
+            color: blueviolet;
+            margin: auto;
+            margin-bottom: 4em;
+         }   
+         span{
+            margin-left:8.8rem;
+            color: aliceblue;
+            font-size: 1.8rem;
+            cursor: pointer;
+            text-transform: capitalize;
+            transition: all 1s;
+         }
+         span:hover{
+            color: rgb(245, 2, 2);
+            text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
+         }
+        
+    </style>
+</head>
+<body>
+    <div class="todo">
+    <h1>To-Do List:</h1>
+</div>
+     <div class="search-bar-container">
+        <input type="text" name="input" id="input" placeholder="Enter here...">
+        <button type="button" id="btn">SUBMIT</button>
+     </div>
+     <div class="output-container">
+        <ul id="lists">
+            </li>   
+        </ul>
+     </div>
+
+     <script>
+        let input=document.getElementById("input");
+        let btn=document.getElementById("btn");
+        let lists=document.getElementById("lists");
+        // let createEl=document.createElement("li");
+        // let spanEl=document.createElement("span");
+        // createEl.append(spanEl);
+        // lists.append(createEl)
+        btn.addEventListener("click",()=>{
+               lists.innerHTML +=`<ul><li><span style="font-size:1.8rem;">
+                ${input.value}
+                </span></li></ul>`
+               input.value="";
+        })
+     </script>
+</body>
+</html>

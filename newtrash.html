@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            transition:all 2s ease-in-out;
+        }
+        .btn{
+            margin: 12px 32px;
+            margin-bottom: 2px;
+            padding: 30px;
+            margin-right: 4rem;
+            background: var(--color);
+            color:white; 
+            width: 200px;
+            cursor: pointer;
+        }
+        .btn-1{--color:royalblue}
+        .btn-2{--color:hotpink}
+        .btn-3{--color:purple}
+        .btn-4{--color:orangered}
+        .btn-5{--color:orange}
+        .btn-6{--color:tan}
+    </style>
+</head>
+<body>
+    <button class="btn btn-1" onclick="BgcolorTheme('royalblue')"></button>
+    <button class="btn btn-2" onclick="BgcolorTheme('hotpink')"></button>
+    <button class="btn btn-3" onclick="BgcolorTheme('purple')"></button>
+    <button class="btn btn-4" onclick="BgcolorTheme('orangered')"></button>
+    <button class="btn btn-5" onclick="BgcolorTheme('orange')"></button>
+    <button class="btn btn-6" onclick="BgcolorTheme('tan')"></button>
+
+
+    <script>
+        function BgcolorTheme(theme){
+            document.querySelector("body").style.backgroundColor=theme;
+        }
+    </script>
+</body>
+</html>
+<!-- document.querySelector("body").style.backgroundColor=color; -->

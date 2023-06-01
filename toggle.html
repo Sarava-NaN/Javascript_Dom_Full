@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .grid{
+            display: grid;
+            grid-template-columns:auto;
+            grid-template-rows: 100px;
+            background-color: olivedrab;
+            text-align: center;
+            color: aliceblue;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px  ;
+        }
+        #btn{
+            padding: 10px 30px;            
+            margin:auto;
+            margin-top: 1rem;
+            display: block;
+            cursor: pointer;
+        }
+        .remove{
+            /* opacity: 0; */
+            transform: scale(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="grid">HEADING</div>
+    <button id="btn" onclick="myfun()">HIDE</button>
+    <script>
+        const btn=document.getElementById("btn");
+        const grid=document.getElementsByClassName("grid");
+        // btn.addEventListener("click",()=>{
+        //     grid[0].classList.toggle("remove");
+        // });
+// let count=0;
+//         setInterval(() => {
+//             count++;
+//             if(count>1)
+//           grid[0].style.cssText="background-color:red;"
+//           grid[0].innerHTML=count;
+//         },1000);
+
+function myfun(){
+    if(grid[0].style.backgroundColor==="purple")
+    {
+          btn.innerText="BLACK DIV";
+          grid[0].style.backgroundColor="black";
+          btn.style.backgroundColor="black";
+          btn.style.color="white";
+    }else
+    {
+          btn.innerText="PURPLE DIV";
+          grid[0].style.backgroundColor="purple";
+          btn.style.backgroundColor="purple";
+          btn.style.color="white";
+    }
+}
+    </script>
+</body>
+</html>

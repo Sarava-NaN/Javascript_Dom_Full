@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction:row;
+        }
+        .bg-color{
+            height: 80vh;
+            width: 100vw;
+            background-color:blueviolet;
+            color:whitesmoke;
+            font-size: 2rem;
+            margin: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 1s;
+        }
+        .toggle0{
+background-color: orangered;
+        }
+        .toggle1{
+background-color: cadetblue;
+        }
+        .toggle2{
+background-color: coral;
+        }
+        .toggle3{
+background-color: crimson;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="bg-color">box-1</div>
+        <div class="bg-color">box-2</div>
+        <div class="bg-color">box-3</div>
+        <div class="bg-color">box-4</div>
+    </div>
+
+<script>
+    let Bg=document.querySelectorAll(".bg-color");
+    Bg[0].addEventListener("click",()=>{
+        Bg[0].classList.toggle("toggle0")
+    });
+    Bg[1].addEventListener("click",()=>{
+        Bg[1].classList.toggle("toggle1")
+    })
+    Bg[2].addEventListener("click",()=>{
+        Bg[2].classList.toggle("toggle2")
+    })
+    Bg[3].addEventListener("click",()=>{
+        Bg[3].classList.toggle("toggle3")
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: bisque;
+        }
+        .btn-2{
+            cursor: pointer;
+            border-radius: 40px;
+            border: none;
+            outline: none;
+            background-color:brown;
+            color: aliceblue;
+
+           }
+           .footer{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+           }
+        header{
+            background-color: blue;
+            text-align: center;
+            color: white;
+            padding: 30px;
+            font-family:monospace;
+            font-weight: 900;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+        .input-container{
+            background-color:white;
+            padding: 30px;
+            width: 500px;
+            margin: auto;
+            border-radius: 6px;
+            margin-top: 2rem;
+            box-shadow: 3px 4px 8px 7px rgba(0,0,0,0.4);
+        }
+        .input{
+            padding:10px;
+            width: 360px;
+            background-color:rgb(197, 196, 196);
+            border: none;
+            outline: none;
+            border-radius: 6px;
+            text-transform: capitalize;
+            color:rebeccapurple;
+            font-size: x-large;
+        }
+        ::placeholder{
+            font-size: 1.2rem;
+                }
+        .btn{
+            background-color: rgb(7, 7, 245);
+            padding: 10px;
+            border: none;
+            outline: none;
+            border-radius: 6px;
+            text-transform: uppercase;
+            cursor: pointer;
+            color: cornsilk;
+            font-weight: 600;
+            transform: translateX(10px);
+        }
+        .btn:hover{
+            background-color: rgb(4, 4, 143);
+
+        }
+        .output-container{
+            background-color:white;
+            padding: 30px;
+            width: 500px;
+            margin: auto;
+            border-radius: 6px;
+            margin-top: 2rem;
+            box-shadow: 3px 4px 8px 7px rgba(0,0,0,0.4);
+        }
+        .lists li{
+            list-style-type:none;
+            padding:10px;
+            width: 440px;
+            background-color:rgb(197, 196, 196);
+            border:1px solid gray;
+            outline: none;
+            border-radius: 6px;
+            margin-bottom:1rem;
+            cursor: pointer;
+            transition: background 1s ,color 1s;
+            font-size: 1.2rem;
+           }
+           .lists li:hover{
+            background-color:rgb(138, 133, 133);
+            color: aliceblue;
+           }
+           .heading{
+            text-align: center;
+            background-color: rgb(99, 99, 99);
+            color: blanchedalmond;
+            padding:10px;
+            width: fit-content;
+            margin: auto;
+            margin-top: 1rem;
+            cursor: pointer;
+            border-left: 6px ridge red;
+            border-right: 6px ridge red;
+           }
+         .lists li{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+         }
+         .lists li button{
+            padding: 12px;
+            cursor: pointer;
+         }
+           @media (max-width:480px){
+            header{
+                width: 100%;
+                overflow: hidden;
+            }
+            .input-container{
+            padding: 10px;
+            width:fit-content;
+            max-width:400px;
+        }
+        .input{
+            width: 260px;
+        }
+        .btn{
+            background-color: rgb(7, 7, 245);
+            padding: 14px;
+            transform: translateX(1px)translateY(-4px);
+        }
+        .output-container{
+            padding: 30px;
+            width:auto;
+            background-color: rgba(0, 0, 0, 0.808);
+        }
+        .lists li{
+            padding:10px;
+            width:auto;
+            border:3px solid gray;
+            margin-bottom:1.5rem;
+           }
+           }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>New Year Resolution</h1>
+    </header>
+    <main>
+             <!-- <div class="heading">
+                <h1>✅Succesfully</h1>
+             </div> -->
+    </main>
+    <div class="input-container">
+       <input type="text" class="input" id="input" placeholder="I want to Quit this"> 
+       <button type="button" class="btn" id="btn">SURE</button>
+    </div>
+    <div class="output-container">
+        <ul class="lists">
+            <li>
+                <div>Smoking</div>
+                <div  onclick="Del(event)">
+                    <button class="btn-2">X</button>
+                </div>
+            </li>
+            <li>
+                <div>Alcohol</div>
+                <div onclick="Del(event)"><button class="btn-2">X</button></div>
+            </li>
+            <li>
+                <div>Drugs</div>
+                <div onclick="Del(event)"><button class="btn-2">X</button></div>
+            </li>
+            <li>
+                <div>Porn Addiction</div>
+                <div onclick="Del(event)"><button class="btn-2">X</button></div>
+            </li>
+        </ul>
+        <!-- Sibling Elements -->
+    </div>
+    <script>
+        const input=document.getElementById('input');
+        const btn=document.getElementById('btn');
+        const lists=document.getElementsByClassName('lists');
+    
+        btn.addEventListener('click',()=>{
+            const ul=document.createElement('ul');
+            const li=document.createElement('li');
+            ul.className='lists';
+            ul.append(li);
+            lists[0].append(ul)
+            li.innerHTML += `${input.value}`
+            input.value="";   
+
+            const divItem=document.createElement('div')
+            const DelItem=document.createElement('div');
+            li.append(divItem,DelItem)
+            DelItem.parentElement.setAttribute("onclick","Del(event)")
+            divItem.append(DelItem);
+            DelItem.innerHTML=`<button class="btn-2">X</button>`
+            li.append(divItem);
+            ul.append(divItem,DelItem)
+            li.append(divItem,DelItem);
+        })
+        //Removeing
+        function Del(event){
+            let del=event.target.parentNode.parentNode;
+            del.remove();
+        }
+        //Array   
+        const $=document.querySelectorAll('.lists li');
+        for(let i=0;i<$.length;i++){
+            $[i].style.fontSize='2.2rem'; 
+            $[i].style.color='purple';
+        }
+        // console.log($.lastElementChild);
+        // const FavItems=[
+        //     'Weed',
+        //     'Mastrubation',
+        //     'Nail Bite',
+        //     'Screening Overtime',
+        //     'Sleeping',
+        // ]
+        // for(let i=0;i<FavItems.length;i++){
+        //     console.log("I want to Quit "+FavItems[i] );
+        // }
+        // for(let item of FavItems){
+        //     console.log('Fav addiction is '+item);
+        // }
+        // for(const item of Lists){
+        //     FavItems.push(item.innerText)
+        // }
+        // console.log(FavItems);
+       let __=document.querySelector("ul:last-child");
+       console.log(__.innerText);
+       console.log(__.innerHTML);
+</script>
+  </body>
+  </html>

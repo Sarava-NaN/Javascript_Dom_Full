@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="demo"></h1>
+
+
+    <script>
+        const profile={
+            name:'Saravanan',
+            Place:"Chennai",
+            Age:28,
+            myFav:{
+                food:"Biriyani",
+                Place:"London",
+            },
+          greetUser(){
+            return ` Hello My name is ${this.name} and my Age is ${this.Age} i'm from ${this.Place} and my Fav Food IS ${this.myFav.food}`
+          }
+        }
+        let NewName=prompt("Enter Your Name");
+        let NewPlace=prompt("Enter your Place");
+
+        profile.name=NewName;
+        profile.Place=NewPlace;
+        let FinalResult=profile.greetUser();
+        document.getElementById("demo").innerHTML=FinalResult;
+        document.getElementById("demo").style.color="red";
+    </script>    
+</body>
+</html>
+ <!-- <script>
+    const Profile={
+        name:"Saravanan",
+        Age:28,
+        Place:"Chennai",
+        Lang:"Javascript",
+        Greeting(){
+            return `Hello my Name is ${this.name} my Age is ${this.Age} and my Place is ${this.Place} and i Love ${this.Lang}`
+        }
+    }
+    let NewName=prompt("Enter Your Name");
+    let NewPlace=prompt("Enter Your Location");
+
+    Profile.name=NewName;
+    Profile.Place=NewPlace;
+let $finally=Profile.Greeting()
+    document.getElementById("demo").innerHTML=$finally;
+</script> -->

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background:#80CED7;
+            overflow: hidden;
+        }
+        header{
+            background:linear-gradient(180deg,#8d3abd, #db362a);
+            height: 15vh;
+            padding: 10px;
+            cursor: pointer;
+            text-align: center;
+        }
+        h1{
+            color: rgb(2, 225, 255);
+            font-size: 2.8rem;
+            transition:all 1s ease-in;
+            font-family: monospace;
+            text-shadow: 2px 2px 2px rgba(255,255,255,.9);
+        }
+        h1:hover{
+            color:#09ff01;
+            transform: scale(1.01);
+        }
+        h2{
+            color:#B9CFD4;
+            text-align: center;
+            padding: 20px;
+            margin: 20px;
+            text-shadow: 2px 2px 2px rgba(255,255,255,0.4);
+            transition:transform 1.5s;
+        }
+        h2:hover{
+            transform: scale(1.1);
+        }
+        div{
+            background-color:black;
+            width: 800px;
+            margin: auto;
+            transition:.5s;
+            border-right: 12px solid #fcad02;
+            border-left: 12px solid #fcad02;
+        }
+        div:hover{
+            cursor: pointer;
+        }
+        #input{
+            margin-top:-1.4rem;
+            padding: 10px;;
+            height: 50vh;
+            text-align: center;
+        }
+        input{
+            padding: 4px;
+            border-radius: 12px;
+            outline: 0;
+            border: 0;
+            font-size: 1.5rem;
+            width: 250px;
+            color: #000000;
+            margin-bottom: 1rem;
+        }
+        .btn{
+            background-color: #F95738;
+            padding: 12px 24px;
+            cursor: pointer;
+            outline: 0;
+            border: 0;
+            box-shadow: 4px 3px 1px 2px #ff2a00;
+            border-radius: 12px;
+            transition: 1s;
+            font-size: 1.2rem;
+        }
+        .btn:hover{
+            color: #B9CFD4;
+            text-shadow: 2px 2px 2px rgba(255,255,255,0.4);
+        }
+        ::placeholder{
+            font-size: 1.5rem;
+            color:rgba(0, 0, 0, 0.76)
+        }
+        .demo{
+            color: #fff;
+            text-align: center;
+            padding: 30px;
+            margin: 10px;
+            font-size: 2rem;
+            text-shadow: 2px 2px 2px rgba(255,255,255,0.4);
+        }
+        /* Media Query */
+        @media screen and (max-width:400px){
+            header{
+            height: 25vh;
+            cursor: pointer;
+            text-align: center;
+            width:100vw;
+            min-width:fit-content;
+        }
+        h1{
+            font-size:2rem;
+        }
+        h2{
+            color:#B9CFD4;
+            font-size: 2rem;
+        }
+        div{
+            width:fit-content;          
+        }
+        #input{
+            margin-top:-1.4rem;
+            width: 100vw;
+        }
+        input{
+            margin-bottom:1rem;
+            margin-top: 2rem;
+        }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="head">⚽Food Court⚽</h1>
+    </header>
+    <div>
+        <h2 class="food">Learn HTML DOM in JAVASCRIPT</h2>
+    </div>
+    <div id="input">
+        <input type="text" placeholder="Search..." class="input_value"><br>
+        <button type="button" class="btn">SUBMIT</button>
+        <p class="demo"></p>
+    </div>
+    <script src="getElbyClassName.js"></script>
+</body>
+</html>

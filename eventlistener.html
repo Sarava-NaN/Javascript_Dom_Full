@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: rgba(0, 0, 0, 0.486);
+            height: 100vh;
+        }
+        .todo{
+            margin:1%;
+            color: crimson;
+            font-size: 2rem;
+            text-decoration: underline;
+            cursor: pointer;
+
+        }
+        .search-bar-container{
+            width: fit-content;
+            display: flex;
+            justify-content: center;
+            align-items:center;
+            margin: auto;
+            flex-direction:column;
+        }
+        #input{
+            width: 400px;
+            padding: 12px 22px;
+            border: none;
+            outline: none;
+            border:6px ridge cornflowerblue;
+            border-radius: 12px;
+            font-size: 1.4rem;
+            text-transform: capitalize;
+            color: purple;
+            font-weight: 700;
+        }
+        ::placeholder{
+            color: crimson;
+        }
+        #btn{
+           width:140px;
+           padding: 12px;
+           border: 4px groove rgb(32, 73, 73);
+           border-radius: 12px;
+           cursor: pointer;
+           margin-top:1.4rem;
+           background-color: purple;
+           color: antiquewhite;
+        }
+        #btn:hover{
+            background-color: rgba(59, 20, 59, 0.993);
+        }
+        #lists{
+            margin-top:2em;
+        }
+         span{
+            display: block;
+            margin-left:2rem;
+            text-align: start;
+
+            color: aliceblue;
+            font-size: 1.8rem;
+            cursor: pointer;
+            text-transform: capitalize;
+            transition: all 1s;
+            margin-bottom: 1rem;
+         }
+         span:hover{
+            color:rgb(245, 2, 2);
+            text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
+         }
+        form{
+            background-color:rgba(227, 32, 221, 0.427);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            width: 800px;
+            margin: auto;
+        }
+        form input{
+            padding: 5px 10px;
+            outline: none;
+            font-size: 20px;
+        }
+          #terms{
+            margin-right:1rem;
+        }
+        form *{
+            margin-top:5px;
+        }
+        
+    </style>
+</head>
+ <body>  <!--onclick="alert('Authored By saravanan')" onclick="location.href='www.gooogle.com'"--oncontextmenu="return false"-->
+    <div class="todo">
+    <h1>To-Do List:</h1>
+</div>
+     <div class="search-bar-container">
+        <input type="text" name="input" id="input" placeholder="Enter here...">
+        <button type="button" id="btn">SUBMIT</button>
+     </div>
+     <div class="output-container">
+        <ul id="lists">
+            <li></li>   
+        </ul>
+     </div> 
+     <form action="">
+        <div>
+            <input type="text" placeholder="Full Name">
+        </div>
+        <div class="mt-10">
+            <label for="terms">
+                <input type="checkbox" id="terms">I accept the <a href="https://www.google.com" onclick="event.preventDefault()">terms and conditons</a>
+            </label>
+        </div>
+        <div>
+            <button style="padding: 12px 20px;background-color: royalblue;border: none;border-radius: 5px;color: #fff;cursor: pointer;">Submit</button>
+        </div>
+     </form>
+     <script>
+        let input=document.getElementById("input");
+        let btn=document.getElementById("btn");
+        let lists=document.getElementById("lists");
+        // let createEl=document.createElement("li");
+        // let spanEl=document.createElement("span");
+        // createEl.append(spanEl);
+        // lists.append(createEl)
+        btn.addEventListener("click",()=>{
+               lists.innerHTML +=`<ul><li><span>${input.value}</li></ul>`
+               input.value="";
+        })
+        // new idea
+        let todo=document.getElementsByClassName("todo");
+        todo[0].setAttribute("onclick", "newfn()")
+        function newfn(){
+            if(todo[0].style.color==="purple"){
+                todo[0].style.color="#e7e247";
+        }
+        else
+        {
+            todo[0].style.color="purple";
+        }
+        }       
+        // btn.onclick=function(){
+        //     alert("dai baadu")
+        // }
+        // btn.setAttribute("onclick","alert('DAI BAADU')")
+        const Alt=function(){
+            alert("This is correct Way")
+            alert("This is correct Way@2")
+        }
+        btn.onclick=Alt;
+        // AddeventListener
+        //window.addeventListener()
+        //document.addeventListener()
+        //element.addeventListener()
+//btn.removeEventListener()
+btn.removeEventListener("click",()=>{
+});
+let a=['✔',"❤","🍗"];
+a.splice(0,1);
+let b=[,'✔',"❤","🍗"];
+b.slice();
+console.log("result:"+ a+b);
+console.log(b);
+
+
+let formEl=document.querySelector("form")
+let inputEl=document.querySelector("form input")
+let ckeckboxEl=document.querySelector("form input[type='checkbox']");
+ formEl.addEventListener("submit",(event)=>{
+    event.preventDefault();
+    if(!ckeckboxEl.checked){
+        alert("check the terms")
+        return
+    }
+    console.log('User name is:',inputEl.value,ckeckboxEl.checked);
+ });   //{passive:true}
+</script>
+</body>
+</html>

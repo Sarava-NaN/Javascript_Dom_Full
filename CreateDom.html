@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom_Creatry</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header{
+         /* text-align: center; */
+         background-color:rgb(87, 4, 87);
+         display: flex;
+        }
+        .logo{
+         width: 220px;
+         clip-path: circle(33%);
+         cursor: pointer;
+      }
+        img{
+            width: 100%;
+        }
+        .lists{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width:60%;
+            color: white;
+            font-size: 1.4rem;
+            list-style-type: none;
+            transform: translateX(30%);
+            /* this is one method to center this */
+            /* position: absolute;
+            right: 14px;
+            top: 50px; */
+        }
+        li{
+         cursor: pointer;   
+        }
+        .lists li::after{
+            content: '';
+            height: 5px;
+            display: block;
+            background-color: #07BEB8;
+            transform: scale(0);
+            transition: 1s ease-in;
+            transform-origin:right;
+        }
+        .lists li::before{
+            content: '';
+            height: 5px;
+            display: block;
+            background-color: #C4FFF9;
+            transform: scale(0);
+            transition: 1s ease-in;
+            transform-origin: left;
+        }
+        .lists li:hover::after{
+            transform: scale(1.4);
+        }
+        .lists li:hover::before{
+            transform: scale(1);
+        }
+        .nav-bar{
+            width:10%;
+            height: 20vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content:center;
+            display: none;
+        }
+        .link1,.link2,.link3{
+          width: 35px;
+          height:5%;
+          margin-top: .5rem;
+          background-color:azure;
+        }
+        .input-container{
+            padding:36px;
+            background-color:#381D2A;
+            width: 500px;
+            margin: auto;
+            text-align: center;
+            margin-top: 2rem;
+            border-radius: 12px;
+        }
+        .input{
+            border-radius: 12px;
+            width: 360px;
+            padding: 8px;
+            transform: translateX(-10px);
+            border-radius: 2px;
+            outline:none;
+            border: none;
+            font-size: large;
+            color: #001514;
+            font-weight: 900;
+            text-transform: capitalize;
+        }
+        ::placeholder{
+            font-weight: 10;
+            color: black;
+        }
+        .btn{
+            background-color:#63a1a8;
+            color:#FDF0D5;
+            padding:8px 12px;
+            cursor: pointer;
+            border-radius: 4px;
+            outline:none;
+            border: none;
+        }
+        .list-container{
+            padding:36px;
+            background-color:#001514;
+            width: 500px;
+            height:fit-content;
+            margin: auto;
+            text-align: center;
+            margin-top: 3rem;
+            border-radius: 12px;
+        }
+        ul{
+            color: #FDF0D5;
+            font-size: 1.8rem;
+          }
+        li{
+            list-style-type: none;
+        }
+        #new{
+            background-color: #07BEB8;
+            padding: 12px;
+            width:fit-content;
+            margin-top: 12px;
+            border-radius: 12px;
+            cursor: pointer;
+        }
+        #new:hover{
+            background-color: #01fcef9a;
+            color:#001514;
+        }
+        /* media query */
+        @media screen and (min-width:1000px){
+            .list-container{
+            min-height:48vh;
+        }
+        }
+
+        @media screen and (max-width:1000px){
+            .lists{
+            width:55%;
+            font-size: 1.5rem;
+            transform: translateX(25%);
+        }
+        .list-container{
+            min-height:46vh;
+        }
+        }
+        @media screen and (max-width:800px){
+            .lists{
+            width:58%;
+            font-size: 1.2rem;
+            transform: translateX(14%);
+        }
+        .list-container{
+            min-height:46vh;
+        }
+        }
+        @media screen and (max-width:650px){
+            .lists{
+            width:72%;
+            font-size: 1.2rem;
+            transform: translateX(-5%);
+        }
+        .logo{
+            margin-left: -30px;
+        }
+        }
+        @media screen and (max-width:525px){
+            .lists{
+            display:flex;
+            flex-direction: column;
+            position: fixed;
+            top: 15vh;
+            background-color: #080705;
+            right: 0;
+            width:100%;
+            height: 30vh;
+            transform: translateX(100%);
+            z-index:1;
+            transition: transform 1s ease-in-out;
+        }
+        .input-container{
+            margin-top:4rem;
+        }
+        .nav-bar{
+            width:22%;
+            transform: translateY(12px) translateX(150px);
+            height: 10vh;
+            display:block;
+            margin: auto;
+        }
+        .link1,.link2,.link3{
+          width: 44px;
+          height:8%;
+          margin-top: .8rem;
+          background-color:azure;
+          transition: 1s ease-out;
+        }
+        #text{
+            text-align: center;
+            display: flex;
+            font-size: 3rem;
+            justify-content: center;
+            align-items: center;
+            height: 30vh;
+            background-color: #ED217C;
+            color: #C4FFF9;
+        }
+        }
+        @media screen and (max-width:488px){
+        .nav-bar{
+            width:22%;
+            transform: translateY(12px) translateX(100px);
+        }
+        .input-container{
+            padding:26px;
+            width:auto;
+            margin: auto;
+            margin-top:2rem;
+        }
+        .input{
+            width:fit-content;
+            margin-left: -10px;
+        }
+        .list-container{
+            width:350px;
+            height:fit-content;
+        }
+        .btn{
+            padding: 12px;
+            transform: translateY(-3px);
+        }
+        #text{
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #ED217C;
+            color: #C4FFF9;
+            height: 30vh;
+        }
+        }
+        @media screen and (max-width:400px){
+            header{
+                width:100%;
+                overflow: hidden;
+            }
+        .nav-bar{
+            width:22%;
+            transform: translateY(12px) translateX(70px);
+        }
+        #text{
+            display: none;
+            text-align: center;
+            background-color: #ED217C;
+            color: #C4FFF9;
+            height: 30vh;
+            margin-top: 1rem;
+            border-radius:50%;
+        }
+        .input-container{
+            padding:26px;
+            max-width:24rem;
+            margin: auto;
+            border-radius: 12px;
+            margin-top:2rem;
+        }
+        .input{
+            width:fit-content;
+            margin-left: -10px;
+        }
+        .list-container{
+            max-width:80rem;
+            border-radius: 12px;
+            min-height:30vh;
+
+        }
+        .btn{
+            padding: 12px;
+            transform: translateY(-3px);
+        }
+       
+        }
+        .classlist{
+            transform: translateX(0%);
+        }
+        .cl1{
+            transform: rotate(60deg);
+            margin-top: 1.5rem;
+        }
+        .cl2{
+            display: none;
+        }
+        .cl3{ margin-top: -.4rem;
+              transform:rotate(120deg);
+            }
+            .alert{
+                text-align: center;
+                height: 80px;
+                background-color: #001514;
+                display: flex;
+                align-items: center;
+                justify-content:space-between;
+                width:fit-content;
+                margin: auto;
+                color: #ED217C;
+                font-size: 2rem;
+                margin: 1rem;
+                margin-inline:auto;
+                border-radius: 12px;
+                /* border-left: 20px ridge green;
+                border-right: 20px ridge green; */
+            }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="./img/IMG_20230218_164604.jpg" alt="">
+        </div>
+        <ul class="lists">
+            <li>HOME</li>
+            <li>ABOUT</li>
+            <li>CONTACT</li>
+            <li>SERVICE</li>
+        </ul>
+        <div class="nav-bar">
+            <div class="link1"></div>
+            <div class="link2"></div>
+            <div class="link3"></div>
+        </div>
+    </header>
+    <!-- alert -->
+    <main id="main">
+    <!-- <div class="alert">
+        <strong>✅Succesfully!</strong>completed!
+    </div> -->
+</main>
+     <div class="input-container">
+        <input type="text" name=""placeholder="message" class="input" id="input">
+        <button type="button" class="btn" id="btn">SEND</button>
+     </div>
+     <div class="list-container">
+        <!-- JS Code is Here -->
+     </div>
+   
+    <script>
+        const input=document.getElementById("input");
+        const btn=document.getElementById("btn");
+      
+        btn.addEventListener("click",()=>{
+         const list =  document.getElementsByClassName('list-container');
+         list[0].innerHTML +=`<ul id="new"><li>${input.value}</li></ul>`;
+         input.value="";
+        })
+        // Nav-bar
+        let navBar=document.getElementsByClassName("nav-bar");
+        let listEl=document.getElementsByClassName("lists");
+
+
+        navBar[0].addEventListener("click",()=>{
+            listEl[0].classList.toggle("classlist");
+            navBar[0].children[0].classList.toggle("cl1");
+            navBar[0].children[1].classList.toggle("cl2");
+            navBar[0].children[2].classList.toggle("cl3");
+        })
+    </script>
+
+ <script src="createEl.js"></script>
+</body>
+</html>

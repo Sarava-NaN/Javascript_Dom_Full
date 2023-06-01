@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(49, 49, 51);
+            height: 100vh;
+        }
+        ul{
+            list-style:none;
+        }
+        li{
+            background-color: tomato;
+            display: inline-block;
+            padding: 10px;
+            width: 300px;
+            margin: auto;
+            margin-top: 1rem;
+            text-align: center;
+            color: aliceblue;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        div{
+            background-color: purple;
+            color: white;
+            padding: 15px;
+            width: 300px;
+            margin-top: 1rem;
+            text-align: center;
+            display: flex;
+            justify-content: center ;
+            align-items: center;
+            cursor: pointer;
+        }
+        .donate{
+            flex-direction:column;
+            margin: auto;
+        }
+        button{
+            margin: 10px;
+            cursor: pointer;
+        }
+        input{
+            padding: 10px;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body oncopy="alert('Copy is Prohibited');return false"
+oncontextmenu="return false"
+>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+    </ul>
+      <p id="demo">
+      </p>
+      <!-- Dotation -->
+      <div class="donate">
+        <button data-toggle-id="donate-form">Support Childrens</button>
+        <form hidden id="donate">
+             <span>₹</span>
+             <input type="number" min="1" placeholder="100">
+             <button>Donate</button>
+        </form>
+      </div>
+      <!-- End-Dotation -->
+    <script>
+    let list=document.querySelectorAll("ul li");
+    let demo=document.getElementById("demo");
+    list.forEach(li=>{
+        li.addEventListener("click",()=>{
+        let log=("you clicked the button = " +li.textContent)
+        demo.innerHTML+=`<div>${log}</div>`;
+    })
+    })
+    // Donation
+    document.addEventListener("click",(event)=>{
+       const id= event.target.dataset.toggleId
+       if(!id) return;
+      const el= document.getElementById("donate")
+      el.hidden=!el.hidden
+    
+    })
+ let _= document.querySelector("#donate")
+ _.addEventListener("submit",(event)=>{
+    event.preventDefault();
+       let $=event.target.querySelector("input").value
+       alert(`Thank You for Donating to the Poor Childrens ₹${$}`)
+ })
+//  document.addEventListener("mousedown",(event)=>{
+//     console.log("mousedown",event);
+//  })
+//  document.addEventListener("mouseover",(event)=>{
+//     console.log("mouseover");
+// });
+document.addEventListener("mouseup",(event)=>{
+        switch (event.which) {
+            case 1:
+                alert("left mouse clicked")
+                break;
+                case 2:
+                alert("middle mouse clicked")
+                break;
+                case 3:
+                alert("right mouse clicked")
+                break;
+            default:
+                alert("mouse not clciked")
+                break;
+        }
+})
+    </script>
+</body>
+</html>

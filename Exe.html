@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .alert{
+           background-color: crimson;
+           text-align: center;
+           padding: 30px;
+           color: antiquewhite;
+           font-size: 4rem;
+           display: flex;
+           flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Javascript-Tamil</h1>
+    <h2 id="demo"></h2>
+    <main>
+
+    </main>
+    <script>
+        let demo=document.getElementById("demo");
+
+        Object
+        const person={
+            name:'sarwan',
+            age:28,
+            place:'Chennai',
+            Lang:'Javascript',
+            habits:{
+                food:'veg',
+                alcoholic:'no',
+                smoking:'no',
+                play:'Video Games',
+            },
+            greeting(){
+            return   `Hello i'm ${this.name} my Age is ${this.age} i'm from ${this.place} i love ${this.Lang} and i love to play ${this.habits.play}`
+        }
+        }
+        let newName=prompt("Enter Your Name")
+        let newPlace=prompt("Enter Your Place")
+        person.name=newName;
+        person.place=newPlace;
+        demo.innerHTML=person.greeting();
+        demo.style.backgroundColor="black";
+        demo.style.color="white";
+      function App(){
+        const main=document.getElementsByTagName("main");
+       const div=document.createElement("h1");
+       const comment=document.createComment("ABCD")
+       div.className="alert";
+       const text=document.createTextNode("Fuck You");
+       console.log(div);
+       div.append(text);
+       main[0].append(div);
+       div.append(comment);
+       console.log(div);
+      }
+      App()
+      App()
+      App()
+     </script>
+</body>
+</html>

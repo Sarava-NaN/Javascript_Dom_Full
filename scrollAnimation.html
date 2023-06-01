@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin: 0;
+            overflow-x: hidden;
+            font-weight: 300;
+            font-family:sans-serif;
+        }
+        h1{
+            margin: 10px;
+        }
+        .box{
+            display: flex;
+            justify-content:center;
+            align-items: center;
+            border: 2px solid #3b3b3b;
+            color:#000;
+            background-color: white;
+            width: 400px;
+            height: 200px;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: rgba(0,0,0,0.2)0px 60px 40px -7px;
+            transform: translateX(400%);
+            transition: transform .5s ease;
+        }
+        .box:nth-of-type(even){
+            transform: translateX(-400%);
+        }
+        .box.show{
+            transform: translateX(0);
+        }
+        .box h2{
+            font-size: 22px;
+            font-weight: 800;
+        }
+    </style>
+</head>
+<body>
+    <h1>Scroll Animation</h1>
+    <div class="box"><h2>HTML</h2></div>
+    <div class="box"><h2>CSS</h2></div>
+    <div class="box"><h2>jAVASCRIPT</h2></div>
+    <div class="box"><h2>REACT JS</h2></div>
+    <div class="box"><h2>BOOTSTRAP</h2></div>
+    <div class="box"><h2>PHP</h2></div>
+    <div class="box"><h2>ANGULAR JS</h2></div>
+    <div class="box"><h2>PHYTHON</h2></div>
+    <div class="box"><h2>MY SQL</h2></div>
+    <div class="box"><h2>TYPE SCRIPT</h2></div>
+    <div class="box"><h2>NODE JS</h2></div>
+
+
+    <script>
+        const boxes=document.querySelectorAll(".box");
+        window.addEventListener("scroll",checkBoxes)
+        checkBoxes()
+        function checkBoxes(){
+            const triggerBtn=window.innerHeight / 15 * 6
+            boxes.forEach(box=>{
+                const boxTop=box.getBoundingClientRect().top
+                if(boxTop<triggerBtn){
+                    box.classList.add("show")
+                }else{
+                    box.classList.remove("show")
+                }
+            })
+        }
+    </script>
+</body>
+</html>
