@@ -104,63 +104,31 @@
             <button>Submit</button>
         </div>
     </form>
-
-
+          <div id="demo"></div>
     <script>
-        //  const formEl=document.forms.Feedback;
-        //  const fullnameEl=formEl.elements.fullname;
-        //  const mailEl=formEl.elements.email;
-        //  const typeEl=formEl.elements.type;
-        //  const textEl=formEl.elements.textarea;
-        //  const checkEl=formEl.elements.checkbox;
-        //  console.log(fullnameEl.placeholder,mailEl.placeholder,textEl.placeholder);
+        const FormEl=document.forms.Feedback;
+        const inputEL=FormEl.fullname;
+        console.log(inputEL);
+        const {fullname,type,email,textarea,checkbox}=document.forms.Feedback.elements
+        console.log(fullname.placeholder,type,email.placeholder,textarea.placeholder,checkbox);
 
-//    formEl.addEventListener("submit",(event)=>{
-    // event.preventDefault();
-    // const {fullname,email,type,textarea,checkbox}=formEl.elements
-//    console.log(fullname.placeholder,email.placeholder,type,textarea.name,checkbox.name);
-//     console.log("Form has been succesfully submited ✔ ");
-//    }) 
-//    const handleFormData=(e)=>{
-//     console.log("formdata fired");
-//     const formData=e.formData;
-//     formData.append("api-key","saravanan");
-//     console.log([...formEl.get("mail")]);
-//     console.log(formData)
-//    };
-      const formEl=document.forms.Feedback;
-      const nameEl=formEl.elements.fullname;
+        const players=[
+                      {player:'Ronaldo',Born:1985},
+                      {player:'Rooney',Born:1986},
+                      {player:'Messi',Born:1988},
+                      {player:'Neymar',Born:1992},
+                      {player:'Halland',Born:2000},
+                      {player:'Mbappe',Born:2000},
+                      {player:'Kevin De Byrune',Born:1992},
+                      ]
+                      const currentYear=new Date().getFullYear();
+                      for(let data of players){
+                        data.Age=currentYear-data.Born;
+                      }
+                      console.table(players);
+                      const arr=[...players]
+                      const store=document.getElementById("demo");
 
-    //   const {fullname,email,type,textarea,checkbox}=document.forms.Feedback.elements
-      const handlesubmit=(evenet)=>{
-            evenet.preventDefault();
-            // 1.Attributes
-            // nameEl.value="Saravanan Madeshwaran";
-            // nameEl.disabled=true;
-            // nameEl.readOnly=true;
-            console.log(nameEl.value);
-        //2.Events
-          nameEl.addEventListener("focus",()=> console.log("focused:"));
-          nameEl.addEventListener("blur",()=> console.log("blur:"));
-          nameEl.addEventListener("input",(event)=> console.log(`total input is ${event.target.value}`));
-          nameEl.addEventListener("change",(event)=> console.log(`YOUR SEARCH RESULT IS:${event.target.value}`));
-          const formData=new FormData(formEl);
-        //   3.methods
-        // nameEl.focus()
-        // nameEl.blur()
-        // 
-        nameEl.addEventListener("cut",()=>console.log("cut"));
-        nameEl.addEventListener("copy",()=>{
-            alert("you cant copy this")
-        });
-        nameEl.addEventListener("paste",()=>console.log("paste"));
-      };
-      formEl.addEventListener("submit",handlesubmit);
-
-      const span=document.querySelector("#span");
-      nameEl.addEventListener("change",(event)=>{
-            span.innerText=event.target.value
-      })
-  </script>
+    </script>
 </body>
 </html>

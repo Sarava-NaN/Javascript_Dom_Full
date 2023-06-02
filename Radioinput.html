@@ -73,7 +73,7 @@
             <input type="text" id="text" placeholder="Enter your Fullname" name="fullname" required>
             <!-- </label> -->
         </div>
-        <div class="d-flex">
+        <div class="d-flex" id="radioBtn">
         <div class="d-flex">
             <input type="radio" id="text2" name="type" value="general-feedback" required>
             <label for="text2">General Feedback</label>
@@ -104,63 +104,60 @@
             <button>Submit</button>
         </div>
     </form>
-
-
+          <div id="demo"></div>
     <script>
-        //  const formEl=document.forms.Feedback;
-        //  const fullnameEl=formEl.elements.fullname;
-        //  const mailEl=formEl.elements.email;
-        //  const typeEl=formEl.elements.type;
-        //  const textEl=formEl.elements.textarea;
-        //  const checkEl=formEl.elements.checkbox;
-        //  console.log(fullnameEl.placeholder,mailEl.placeholder,textEl.placeholder);
+         const formEl=document.forms.Feedback;
+         const Radio=formEl.elements.type;
+         const newArray=[...Radio]
+         console.log(newArray);
+        //  1.Attributes
+          newArray.forEach((cat)=>{
+            console.log(cat.value);
+            console.log(cat.checked);
+          });
+        //   2.Events
+        let radioBt=document.querySelector("#radioBtn");
+        radioBt.addEventListener("change",(event)=>{
+        console.log("You have Clicked -",event.target.value);
+    });
+        //     const checked=newArray.find((cat)=>{
+       //         return cat.checked;
+      //     console.log(checked.value);
+     //   });
+    //  3.Methods
+    // newArray[2].select();
+    // newArray[2].checked=true;
+    const handlesubmit=(event)=>{
+        event.preventDefault();
+        const formData=new FormData(formEl);
+    };
+    formEl.addEventListener("submit",handlesubmit);
 
-//    formEl.addEventListener("submit",(event)=>{
-    // event.preventDefault();
-    // const {fullname,email,type,textarea,checkbox}=formEl.elements
-//    console.log(fullname.placeholder,email.placeholder,type,textarea.name,checkbox.name);
-//     console.log("Form has been succesfully submited ✔ ");
-//    }) 
-//    const handleFormData=(e)=>{
-//     console.log("formdata fired");
-//     const formData=e.formData;
-//     formData.append("api-key","saravanan");
-//     console.log([...formEl.get("mail")]);
-//     console.log(formData)
-//    };
-      const formEl=document.forms.Feedback;
-      const nameEl=formEl.elements.fullname;
-
-    //   const {fullname,email,type,textarea,checkbox}=document.forms.Feedback.elements
-      const handlesubmit=(evenet)=>{
-            evenet.preventDefault();
-            // 1.Attributes
-            // nameEl.value="Saravanan Madeshwaran";
-            // nameEl.disabled=true;
-            // nameEl.readOnly=true;
-            console.log(nameEl.value);
-        //2.Events
-          nameEl.addEventListener("focus",()=> console.log("focused:"));
-          nameEl.addEventListener("blur",()=> console.log("blur:"));
-          nameEl.addEventListener("input",(event)=> console.log(`total input is ${event.target.value}`));
-          nameEl.addEventListener("change",(event)=> console.log(`YOUR SEARCH RESULT IS:${event.target.value}`));
-          const formData=new FormData(formEl);
-        //   3.methods
-        // nameEl.focus()
-        // nameEl.blur()
-        // 
-        nameEl.addEventListener("cut",()=>console.log("cut"));
-        nameEl.addEventListener("copy",()=>{
-            alert("you cant copy this")
-        });
-        nameEl.addEventListener("paste",()=>console.log("paste"));
-      };
-      formEl.addEventListener("submit",handlesubmit);
-
-      const span=document.querySelector("#span");
-      nameEl.addEventListener("change",(event)=>{
-            span.innerText=event.target.value
-      })
-  </script>
+    // 
+   radioBt.addEventListener("change",()=>{
+      const newAt=newArray.find((catagory)=> catagory.checked)
+      if(newAt.value==="contributions")
+      {
+        setTimeout(() => {
+        alert("Thanks For Contributing Here!!! :)")
+        },500);
+      }
+   });
+//    technical support
+radioBt.addEventListener("change",(event)=>{
+       const $=event.target;
+       if($.value==="tech-feedback")
+       {
+        setTimeout(() => {
+            alert("Thanks for your technical support")
+        },1);
+       }
+       });
+   const span=document.querySelector("#span");
+   const inputEl=formEl.elements.fullname;
+   inputEl.addEventListener("input",(event)=>{
+    span.innerHTML=event.target.value;
+  });
+    </script>
 </body>
 </html>

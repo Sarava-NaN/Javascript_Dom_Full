@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: slateblue;
+        }
+        h1{
+            text-align: center;
+            color: rgb(90, 106, 120);
+        }
+        form{
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            width: 1000px;
+            margin: auto;
+            margin-top: 5rem;
+        }
+        form *{
+            width: 100%;
+            margin: 5px;
+        }
+        form input,
+        textarea,
+        select{
+            padding: 5px 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid gainsboro;
+        }
+        form button{
+            padding: 12px 10px;
+            background-color: royalblue;
+            border: none;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        form label,select{
+            display: flex;
+            align-items: center;
+            font-size: 15px;
+            color: gray;
+            user-select: none;
+        }
+        form label input,
+        form input[type="radio"]{
+            width:auto;
+        }
+        .d-flex{
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <form action="" name="Feedback">
+        <h1>
+            <span id="span"></span>
+            Feedback Form
+        </h1>
+        <div class="fullname">
+            <!-- <label for="text">User Name: -->
+            <input type="text" id="text" placeholder="Enter your Fullname" name="fullname" required>
+            <!-- </label> -->
+        </div>
+        <div class="d-flex" id="radioBtn">
+        <div class="d-flex">
+            <input type="radio" id="text2" name="type" value="general-feedback" required>
+            <label for="text2">General Feedback</label>
+        </div>
+        <div class="d-flex">
+            <input type="radio" id="text3"name="type" value="tech-feedback" required>
+            <label for="text3">Technical Support</label>
+        </div>
+        <div class="d-flex">
+            <input type="radio" id="text4"name="type" value="contributions" required>
+            <label for="text4">Contributions</label>
+        </div>
+    </div>
+        <div class="d-flex">
+            <div>
+            <input type="email" placeholder="you@awesome.com" name="email" required>
+           </div>
+           <div>
+            <select name="country" id="country">
+                <option value="select">--select country--</option>
+                <option value="Ind">India</option>
+                <option value="PAK">Pakistan</option>
+                <option value="la">Sri Lanka</option>
+                <option value="mya">Malyasia</option>
+                <option value="Eng">England</option>
+                <option value="Ir">Iraq</option>
+                <option value="Nr">Nedharland</option>
+                <option value="Zim">Zimbabae</option>
+            </select>
+           </div>
+        </div>
+        <div>
+            <textarea placeholder="Enter your Feedback briefly" rows="10" name="textarea" required></textarea>
+        </div>
+        <div>
+            <label for="terms">
+                <input type="checkbox" id="terms" name="checkbox" required>
+               I accept the terms and conditions.
+            </label>
+        </div>
+        <div>
+            <button>Submit</button>
+        </div>
+        <div class="hobbies d-flex">
+            <h3>Hobbies:</h3>
+            <label for="hearing_songs">
+            <input type="checkbox" id="hearing_songs" name="hobbies" value="hearing_songs">
+              hearing songs
+            </label>
+            <label for="Games">
+                <input type="checkbox" id="Games"  name="hobbies" value="Games">
+                  Playstaton Games
+                </label>
+                <label for="Football">
+                    <input type="checkbox" id="Football" name="hobbies" value="Football">
+                      Watching Football
+                    </label>
+                    <label for="Coding">
+                        <input type="checkbox" id="Coding" checked name="hobbies" value="Coding">
+                          Learn Coding
+                        </label>
+        </div>
+    </form>
+          <div id="demo"></div>
+    <script>
+        let formEl=document.forms.Feedback;
+        let selectEl=formEl.elements.country;
+        let newArray=[...selectEl];
+        // console.log(newArray);
+        // Property
+        console.log(selectEl.textContent);
+        console.log(selectEl);//get
+        selectEl.value="Ind"//set
+        // 2.selected Index
+        selectEl.selectedIndex=7;
+        // 3.seleced Dom Elements
+
+        // 4.Events
+          selectEl.addEventListener("change",(event)=>{
+            console.log(
+                `Selected Country=${event.target.options[event.target.selectedIndex].text}`
+            );//get text
+          });
+          //options
+
+       let optionEl=document.createElement("option");
+       optionEl.value="SA"
+       optionEl.text="South Africa"
+    //    selectEl.append(optionEl)
+         selectEl.add(optionEl,4)
+         selectEl.remove(2);
+
+    //    Array to string-string to Array
+    console.log(`#-Array to string`);
+    const names=["Adams","John","Sarwan","Kalai"];
+    console.log(names);
+    const string=names.toString("");
+    console.log(string);
+    console.log(typeof string);
+    console.log(`#-Back to Array`);
+    const array=string.split(",");
+    console.log(array);
+    console.log(typeof array);
+    const joined=array.join("+");
+    console.log(joined);
+    console.log(joined);
+    
+    console.log(names.join(""));
+    console.log(names.join("_"));
+    console.log(names.join("+"));
+    console.log(names.join(","));
+    console.log(names.join("  "));
+    console.log(string.split("").length);
+
+    let teams=["Man city","Man Utd","NewCastle Utd","Tottenham Hotspur","Liverpool","Arsenal","WestHam Utd","Everton","Leeds Utd","Chelsea","Southampton","Nothingam Forest","Brighton","Aston villa","Brentford","Fulham","Crystal Palace","Wolves","Leicester","Bournemouth"];
+    console.table(teams);
+    console.log(`Total Teams in Premier League=${teams.length}`);
+    const _=teams.filter(team=>
+        team.at(-1)==="a");
+        console.log(_);
+        console.log("-1 returns last letter");
+
+    const $=teams.filter(team=>
+        team[0]==="M");
+        console.log($);
+
+    const _$=teams.filter(team=>
+            team.startsWith("A")
+     );
+     console.log("StartsWith");
+     console.log(_$);
+
+     const __=teams.filter(team=>
+              team.endsWith("d")
+     );
+     console.log(__);
+     
+    </script>
+</body>
+</html>
